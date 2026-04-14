@@ -1,0 +1,40 @@
+version: 2
+
+models:
+  - name: stg_fintech__transactions
+    description: "Cleaned and standardised fintech transactions. First quality gate."
+    config:
+      materialized: view
+    columns:
+      - name: transaction_id
+        description: "Unique identifier for each transaction"
+        tests:
+          - unique
+          - not_null
+
+      - name: customer_id
+        description: "Customer identifier - must not be null for completed transactions"
+        tests:
+          - not_null
+
+      - name: amount
+        description: "Transaction amount in USD"
+        tests:
+          - not_null
+          - dbt_utils.accepted_range:
+              min_value: 0
+              inclusive: false
+
+      - name: status
+        description: "Transaction status"
+        tests:
+          - not_null
+          - accepted_values:
+              values: ['COMPLETED', 'PENDING', 'FAILED', 'REFUNDED']
+
+      - name: payment_method
+        description: "Payment method used"
+        tests:
+          - not_null
+          - accepted_values:
+              values: ['credit_card', 'debit_card', 'bank_transfer']

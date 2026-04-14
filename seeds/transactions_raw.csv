@@ -1,0 +1,12 @@
+transaction_id,customer_id,amount,status,transaction_date,payment_method,merchant_id
+TXN001,CUST101,250.00,completed,2024-01-15,credit_card,MERCH001
+TXN002,CUST102,89.99,completed,2024-01-15,debit_card,MERCH002
+TXN003,CUST103,-50.00,failed,2024-01-16,credit_card,MERCH001
+TXN004,CUST101,1200.00,completed,2024-01-16,bank_transfer,MERCH003
+TXN005,,175.50,pending,2024-01-17,credit_card,MERCH002
+TXN006,CUST104,0.00,completed,2024-01-17,debit_card,MERCH001
+TXN007,CUST105,450.00,completed,2024-01-18,credit_card,MERCH004
+TXN008,CUST102,89.99,completed,2024-01-18,debit_card,MERCH002
+TXN008,CUST106,320.00,pending,2024-01-19,bank_transfer,MERCH003
+TXN009,CUST107,99.99,refunded,2024-01-19,credit_card,MERCH001
+TXN010,CUST108,5000.00,completed,2024-01-20,bank_transfer,MERCH005
