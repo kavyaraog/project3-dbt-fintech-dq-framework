@@ -22,10 +22,12 @@ Raw CSV Data → dbt Staging Model → dbt Tests → AI Report Generator → Mar
 
 ## Tech Stack
 - dbt Core
+- Snowflake (cloud data warehouse)
 - DuckDB (local development)
-- Claude API (Anthropic) — AI-powered report narrative
+- Claude API (Anthropic) — AI-powered narrative reporting
 - Python 3
 - dbt_utils package
+- Great Expectations (data validation framework)
 
 ## Project Structure
 project3_fintech_dq/
@@ -61,6 +63,16 @@ python dq_ai_reporter.py
 ## Output
 Timestamped markdown reports with executive summary, business impact analysis, 
 and risk level (LOW/MEDIUM/HIGH) for each data quality issue found.
+
+## Results from First Run
+
+The framework identified 3 real data quality issues on the first execution:
+
+- Duplicate transaction_id (TXN008) — would cause potential double-charge in payments
+- Missing customer_id on TXN005 — creates BSA/AML reporting gap
+- Invalid amounts on 2 transactions — negative and zero values in payments context
+
+6 of 9 tests passed. 3 meaningful failures detected and classified by business impact.
 
 ## Domain Context
 Built with fintech transaction data including payment method validation, 
