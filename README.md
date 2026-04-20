@@ -68,5 +68,4 @@ transaction status checks, and amount range enforcement aligned with
 financial data governance standards.
 
 ## Author
-Kavya — AI-Augmented Data Quality Engineer
-15 years experience in Fintech, Banking, Cybersecurity & Insurance
+Kavya Gangadhara — Data Quality Engineer | Fintech & Banking Domain | AI-Augmented DQ Frameworks
